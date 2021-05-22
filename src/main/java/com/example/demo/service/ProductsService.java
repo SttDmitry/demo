@@ -1,0 +1,40 @@
+package com.example.demo.service;
+
+
+import com.example.demo.entities.Product;
+import com.example.demo.repositories.ProductsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ProductsService {
+    private ProductsRepository productsRepository;
+
+    @Autowired
+    public void setProductsRepository(ProductsRepository productsRepository) {
+        this.productsRepository = productsRepository;
+    }
+
+    public Product getProductById(int id) {
+        Product product = productsRepository.findOneById(id);
+        return product;
+    }
+
+    public List<Product> getProducts(){
+        return productsRepository.listOfProducts();
+    }
+
+    public void addProduct(Product product){
+//        if (productsRepository.addProduct(product.getId(), product.getTitle(), product.getCost())){
+//            System.out.println("Product added!");
+//        }
+        productsRepository.addProductToList(product);
+    }
+
+
+
+    public ProductsService() {
+    }
+}
