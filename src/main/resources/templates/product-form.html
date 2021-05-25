@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+<form th:action="@{/product/processForm}" th:object="${product}" method="post">
+    Пожалуйста, введите данные товара:<br>
+    <label>ID:</label><input th:field="*{id}" type="number" name="id" value="" placeholder="id товара" required><br>
+    <label>Title:</label><input th:field="*{title}" type="text" name="title" value="" placeholder="title товара"><br>
+    <label>Cost:</label><input th:field="*{cost}" type="number" name="cost" value="" placeholder="cost товара"><br>
+    <input type="submit" value="Отправить">
+</form>
+</body>
+</html>
